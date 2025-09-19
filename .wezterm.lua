@@ -1,47 +1,44 @@
 local wezterm = require("wezterm")
 
--- Diese Funktion hält die Konfiguration
+-- Initialize configuration builder
 local config = wezterm.config_builder()
 
--- Nur die grundlegendsten Cursor-Einstellungen
-config.cursor_thickness = 2
+-- Cursor appearance settings
+config.cursor_thickness = 2 -- Set cursor thickness to 2 pixels
 
--- Farben für den Cursor
+-- Cursor color configuration (currently disabled)
 -- config.colors = {
 --   cursor_bg = "#00FFFF",
 --   cursor_border = "#FF00FF",
 -- }
 
+-- Make cursor stand out by inverting colors underneath
 config.force_reverse_video_cursor = true
 
--- Deaktiviere die Wayland-Technologie
-config.enable_wayland = false
--- config.window_decorations = "RESIZE"
-config.enable_tab_bar = true
-config.window_background_opacity = 0.75
+-- Display and window settings
+config.enable_wayland = false -- Disable Wayland support for better compatibility
+config.enable_tab_bar = true -- Enable tab bar for multiple tabs
+config.window_background_opacity = 0.75 -- Set window transparency to 75%
 
--- Farbschema
--- config.color_scheme = "GJM (terminal.sexy)"
+-- Color scheme configuration
+config.color_scheme = "tokyonight_night" -- Use Tokyo Night dark theme
 
-config.color_scheme = "tokyonight_night"
+-- Font configuration
+config.font = wezterm.font("MesloLGS Nerd Font") -- Nerd Font for icons support
+config.font_size = 12.0 -- Set font size to 12pt
+config.warn_about_missing_glyphs = false -- Suppress glyph warnings
 
--- Schriftart
-config.font = wezterm.font("MesloLGS Nerd Font")
-config.font_size = 12.0
-
-config.warn_about_missing_glyphs = false
-
--- Fensterabstände
+-- Window padding configuration
 config.window_padding = {
-  left = 4,
-  right = 0,
-  top = 4,
-  bottom = 0,
+  left = 4,   -- 4px padding on the left
+  right = 0,  -- No padding on the right
+  top = 4,    -- 4px padding on the top
+  bottom = 0, -- No padding on the bottom
 }
 
--- Tastenkombinationen
+-- Custom key bindings
 config.keys = {
-  -- Wechseln zwischen den Splits
+  -- Pane navigation using vim-like hjkl keys
   {
     key = "h",
     mods = "CTRL|SHIFT",
@@ -62,19 +59,18 @@ config.keys = {
     mods = "CTRL|SHIFT",
     action = wezterm.action.ActivatePaneDirection("Right"),
   },
-  -- Horizontale Teilung
+  -- Pane splitting
   {
-    key = "|",
+    key = "|", -- Split window horizontally (side by side)
     mods = "CTRL|SHIFT",
     action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
   },
-  -- Vertikale Teilung
   {
-    key = "_",
+    key = "_", -- Split window vertically (top and bottom)
     mods = "CTRL|SHIFT",
     action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
   },
-  -- Größe der Splits anpassen
+  -- Pane resizing using arrow keys
   {
     key = "LeftArrow",
     mods = "CTRL|SHIFT",
