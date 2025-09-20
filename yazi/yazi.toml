@@ -1,0 +1,32 @@
+# ~/.config/yazi/yazi.toml
+# Main configuration file for yazi file manager
+
+# Define custom openers for different file types and actions
+[opener]
+# Text editor configuration - uses VelocityNvim setup
+edit = [
+  { run = 'NVIM_APPNAME=VelocityNvim nvim "$@"', block = true, for = "unix", desc = "Edit with VelocityNvim" },
+]
+
+# Media player configuration - uses MPV for audio/video files
+play = [
+  { run = 'mpv "$@"', orphan = true, for = "unix", desc = "Play with MPV" },
+]
+
+# Default system opener - uses xdg-open for most file types
+open = [
+  { run = 'xdg-open "$@"', desc = "Open" },
+]
+
+# File opening rules - route all files to the default opener
+[open]
+rules = [
+  # Catch-all rule: route everything to the "open" command
+  { name = "*", use = "open" },
+]
+
+# Manager settings - configure file manager behavior
+[manager]
+# Number of lines to keep above/below cursor (high value centers cursor)
+scrolloff = 5
+
