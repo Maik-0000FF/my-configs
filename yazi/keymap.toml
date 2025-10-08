@@ -1,0 +1,16 @@
+# Disable wrap navigation - stop at first/last file instead of wrapping around
+[[mgr.prepend_keymap]]
+on = [ "k" ]
+run = "arrow -1"
+
+[[mgr.prepend_keymap]]
+on = [ "j" ]
+run = "arrow 1"
+
+[[mgr.prepend_keymap]]
+on = [ "<Up>" ]
+run = "arrow -1"
+
+[[mgr.prepend_keymap]]
+on = [ "<Down>" ]
+run = "arrow 1"
