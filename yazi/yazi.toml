@@ -15,9 +15,15 @@ open = [
   { run = 'open "$@"', orphan = true, desc = "Open", for = "macos" },
 ]
 
-# File opening rules - open text files with nvim by default
+# File opening rules
 [open]
 rules = [
+  # Media files - open with system default (before text rules!)
+  { mime = "image/*", use = "open" },
+  { mime = "video/*", use = "open" },
+  { mime = "audio/*", use = "open" },
+  { mime = "application/pdf", use = "open" },
+
   # Text files
   { mime = "text/*", use = "edit" },
   { mime = "application/json", use = "edit" },
