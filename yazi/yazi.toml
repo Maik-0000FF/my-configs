@@ -24,6 +24,15 @@ rules = [
   { mime = "audio/*", use = "open" },
   { mime = "application/pdf", use = "open" },
 
+  # 3D/CAD files
+  { mime = "application/x-blender", use = "open" },
+  { name = "*.blend", use = "open" },
+  { name = "*.blend1", use = "open" },
+  { mime = "application/x-extension-fcstd", use = "open" },
+  { name = "*.fcstd", use = "open" },
+  { name = "*.FCStd", use = "open" },
+  { mime = "model/*", use = "open" },
+
   # Text files
   { mime = "text/*", use = "edit" },
   { mime = "application/json", use = "edit" },
