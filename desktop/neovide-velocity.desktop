@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=VelocityNvim (Neovide)
+Comment=Neovide with VelocityNvim configuration
+Exec=env NVIM_APPNAME=VelocityNvim WINIT_UNIX_BACKEND=x11 neovide %F
+Icon=neovide
+Terminal=false
+Categories=Utility;TextEditor;Development;
+Keywords=Text;Editor;Neovim;Vim;
+MimeType=text/plain;text/x-c;text/x-c++;text/x-python;application/json;
