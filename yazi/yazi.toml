@@ -3,16 +3,16 @@
 
 # Define custom openers for different file types and actions
 [opener]
-# Text editor configuration - uses standard nvim
+# Text editor configuration - uses VelocityNvim
 edit = [
-  { run = 'nvim "$@"', block = true, for = "unix", desc = "Edit with Neovim" },
-  # { run = 'neovide "$@"', block = true, for = "unix", desc = "Edit with Neovim" },
+  { run = 'NVIM_APPNAME=VelocityNvim nvim "$@"', block = true, for = "unix", desc = "Edit with VelocityNvim" },
 ]
 
 # Default system opener - uses xdg-open (Linux) or open (macOS)
+# orphan = true ensures the process runs in background and doesn't block yazi
 open = [
-  { run = 'xdg-open "$@"', desc = "Open", for = "linux" },
-  { run = 'open "$@"', desc = "Open", for = "macos" },
+  { run = 'xdg-open "$@"', orphan = true, desc = "Open", for = "linux" },
+  { run = 'open "$@"', orphan = true, desc = "Open", for = "macos" },
 ]
 
 # File opening rules - open text files with nvim by default
