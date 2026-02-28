@@ -11,10 +11,13 @@ Personal configuration files for terminal tools and applications.
 - Window appearance customization
 
 ### Kitty Terminal Emulator
+- Tokyo Night color scheme with matching border colors
 - MesloLGS Nerd Font configuration
-- Custom window settings with transparency
+- Block cursor with reverse video
+- Custom window settings with 85% transparency
 - Fcitx5 Input Method support (X11 backend for compatibility)
-- Split window management
+- Split window management with vim-like navigation
+- Powerline tab bar
 - Remote control enabled
 
 ### Neovide GUI for Neovim
@@ -104,11 +107,14 @@ See [nvim-aliases.md](nvim-aliases.md) for more details.
 - Window appearance customization
 
 ### Kitty
+- Tokyo Night color scheme
 - MesloLGS Nerd Font with proper fallback
-- 80% background opacity for transparency
+- 85% background opacity for transparency
+- Block cursor with reverse video colors
 - X11 backend for better Fcitx5 compatibility
 - Split window navigation (Ctrl+Shift+hjkl)
 - Dynamic window resizing
+- Powerline tab bar
 - Cursor trail animation support
 
 ### Neovide
