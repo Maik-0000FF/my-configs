@@ -1,0 +1,5 @@
+# Restart logid when Logitech MX Master 3S appears (Bluetooth HID)
+# Fixes race condition where logid starts before the device is ready
+# Note: Bluetooth devices use KERNELS (parent HID bus:vendor:product format),
+#       not ATTRS{idVendor}/ATTRS{idProduct} (which only work for USB devices)
+ACTION=="add", SUBSYSTEM=="hidraw", KERNELS=="0005:046D:B034*", RUN+="/usr/bin/systemctl restart logid.service"
