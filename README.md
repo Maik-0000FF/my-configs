@@ -1,6 +1,6 @@
-# My Terminal Configurations
+# My Configurations
 
-Personal configuration files for terminal tools and applications.
+Personal configuration files for terminal tools, applications and peripherals.
 
 ## Included Configurations
 
@@ -29,6 +29,14 @@ Personal configuration files for terminal tools and applications.
 - Tokyo Night theme
 - VelocityNvim editor integration
 - Custom file type associations
+
+### Logitech MX Master 3S
+- Button-Mapping (Zurück/Vorwärts, Gesture-Button mit Fensterverwaltung)
+- Thumbwheel als Lautstärkeregler (1%-Schritte)
+- SmartShift und Hi-Res Scroll
+- DPI: 1200
+- udev-Regel für automatischen Reconnect
+- Automatisches Setup-Script für Arch Linux + KDE Plasma
 
 ## Installation
 
@@ -62,7 +70,14 @@ cp neovide/config.toml ~/.config/neovide/
 cp -r yazi/ ~/.config/yazi/
 ```
 
-6. Restart your applications to apply the configurations.
+### MX Master 3S Setup
+6. Run the setup script (Arch Linux + KDE Plasma):
+```bash
+cd mx-master-3s
+./setup.sh
+```
+
+7. Restart your applications to apply the configurations.
 
 ## VelocityNvim Aliases
 
@@ -136,3 +151,4 @@ See [nvim-aliases.md](nvim-aliases.md) for more details.
 - [Neovide](https://neovide.dev/) - GUI for Neovim
 - [Yazi](https://yazi-rs.github.io/) file manager
 - [Neovim](https://neovim.io/) with VelocityNvim configuration
+- [logiops](https://github.com/PixlOne/logiops) - Logitech MX Master 3S Konfiguration (AUR: `logiops-git`)
