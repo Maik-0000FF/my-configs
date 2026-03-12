@@ -85,9 +85,13 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Fix: Kitty mouse clicks can trigger autosuggestion acceptance.
-# Use End key to accept autosuggestions instead of forward-char/right arrow.
-ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(end-of-line)
+# Fix: Kitty mouse clicks send forward-char which triggers autosuggestion acceptance.
+# In Kitty: only End key accepts. In other terminals: arrow keys + End work normally.
+if [[ -n "$KITTY_WINDOW_ID" ]]; then
+    ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(end-of-line)
+else
+    ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(forward-char end-of-line)
+fi
 
 # User configuration
 
