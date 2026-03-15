@@ -1,0 +1,95 @@
+# ─────────────────────────────────────────────────────────────
+# Ghostty Konfiguration — übersetzt aus WezTerm
+# ─────────────────────────────────────────────────────────────
+
+# ── MAUS ──────────────────────────────────────────────────────
+# Verhindert, dass Mausklicks zsh-autosuggestions vervollständigen.
+# (Feature seit v1.3.0, Standard: true → muss explizit deaktiviert werden)
+cursor-click-to-move = false
+
+# Maus beim Tippen ausblenden
+mouse-hide-while-typing = true
+
+# Scrollgeschwindigkeit (Mausrad: 3x, Trackpad: 1x)
+mouse-scroll-multiplier = precision:1,discrete:3
+
+# ── SCHRIFT ───────────────────────────────────────────────────
+# WezTerm: config.font = wezterm.font("MesloLGS Nerd Font"), font_size = 12.0
+font-family = MesloLGS Nerd Font
+font-size = 12
+
+# ── CURSOR ────────────────────────────────────────────────────
+# WezTerm: cursor_thickness = 2
+adjust-cursor-thickness = 2
+
+# WezTerm: force_reverse_video_cursor = true
+# Cursor hebt sich durch invertierte Vorder-/Hintergrundfarben ab
+cursor-invert-fg-bg = true
+
+# ── FARBEN / THEME ────────────────────────────────────────────
+# WezTerm: color_scheme = "tokyonight_night"
+theme = TokyoNight Night
+
+# ── FENSTER ───────────────────────────────────────────────────
+# WezTerm: window_background_opacity = 0.85
+
+# background-opacity = 0.85
+
+# WezTerm: window_padding = { left=4, right=0, top=4, bottom=0 }
+
+window-padding-x = 8,0
+window-padding-y = 4,0
+
+window-decoration = auto
+
+# Tab-Leiste: auto | always | never
+window-show-tab-bar = auto
+
+# ── SPLITS / TABS ─────────────────────────────────────────────
+# Neuer Split/Tab übernimmt das aktuelle Verzeichnis
+split-inherit-working-directory = true
+tab-inherit-working-directory = true
+
+# ── SHELL INTEGRATION ─────────────────────────────────────────
+shell-integration = detect
+shell-integration-features = cursor,title
+
+# ── TERMINAL ──────────────────────────────────────────────────
+scrollback-limit = 10000000
+
+# Benachrichtigung wenn langer Befehl fertig ist (nur wenn nicht fokussiert)
+notify-on-command-finish = unfocused
+
+# ── KEYBINDINGS ───────────────────────────────────────────────
+
+# WezTerm: CTRL+SHIFT+H/J/K/L → Pane-Navigation (vim-like)
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+j=goto_split:bottom
+keybind = ctrl+shift+k=goto_split:top
+keybind = ctrl+shift+l=goto_split:right
+
+# WezTerm: CTRL+SHIFT+| → horizontal splitten
+# Ghostty nutzt den physischen Tastennamen vor Shift-Transformation:
+# | = Shift+\ → backslash (auf US-Layout; ggf. für DE-Layout anpassen)
+keybind = ctrl+shift+backslash=new_split:right
+
+# WezTerm: CTRL+SHIFT+_ → vertikal splitten
+# _ = Shift+- → minus (auf US/DE-Layout)
+keybind = ctrl+shift+minus=new_split:down
+
+# WezTerm: CTRL+SHIFT+Arrow → Pane-Größe anpassen
+keybind = ctrl+shift+left=resize_split:left,10
+keybind = ctrl+shift+right=resize_split:right,10
+keybind = ctrl+shift+up=resize_split:up,10
+keybind = ctrl+shift+down=resize_split:down,10
+
+# WezTerm: SHIFT+Enter → ESC + CR (nützlich für Neovim / tmux)
+# Zig string literal syntax: \x1b = ESC, \r = CR
+keybind = shift+enter=text:\x1b\r
+
+# Tabs
+keybind = ctrl+shift+t=new_tab
+keybind = ctrl+shift+w=close_surface
+
+# Maus-Reporting runtime togglen (nützlich für TUI-Apps wie Vim)
+keybind = ctrl+shift+m=toggle_mouse_reporting

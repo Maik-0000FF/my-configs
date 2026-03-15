@@ -4,6 +4,14 @@ Personal configuration files for terminal tools, applications and peripherals.
 
 ## Included Configurations
 
+### Ghostty Terminal Emulator
+- Tokyo Night Night color scheme
+- MesloLGS Nerd Font, size 12
+- Block cursor with inverted colors and custom thickness
+- Vim-like split navigation (Ctrl+Shift+hjkl)
+- Disabled click-to-move cursor (prevents unwanted zsh autosuggestion completion)
+- Fcitx5/IME support via GTK
+
 ### WezTerm Terminal Emulator
 - Custom key bindings
 - Theme configuration
@@ -45,39 +53,46 @@ Personal configuration files for terminal tools, applications and peripherals.
 git clone https://github.com/Maik-0000FF/my-configs.git
 ```
 
+### Ghostty Setup
+2. Copy the Ghostty configuration:
+```bash
+mkdir -p ~/.config/ghostty
+cp ghostty/config ~/.config/ghostty/config
+```
+
 ### WezTerm Setup
-2. Copy the WezTerm configuration:
+3. Copy the WezTerm configuration:
 ```bash
 cp .wezterm.lua ~/.wezterm.lua
 ```
 
 ### Kitty Setup
-3. Copy the Kitty configuration:
+4. Copy the Kitty configuration:
 ```bash
 cp kitty/kitty.conf ~/.config/kitty/
 ```
 
 ### Neovide Setup
-4. Copy the Neovide configuration:
+5. Copy the Neovide configuration:
 ```bash
 mkdir -p ~/.config/neovide
 cp neovide/config.toml ~/.config/neovide/
 ```
 
 ### Yazi Setup
-5. Copy the yazi configuration:
+6. Copy the yazi configuration:
 ```bash
 cp -r yazi/ ~/.config/yazi/
 ```
 
 ### MX Master 3S Setup
-6. Run the setup script (Arch Linux + KDE Plasma):
+7. Run the setup script (Arch Linux + KDE Plasma):
 ```bash
 cd mx-master-3s
 ./setup.sh
 ```
 
-7. Restart your applications to apply the configurations.
+8. Restart your applications to apply the configurations.
 
 ## VelocityNvim Aliases
 
@@ -115,6 +130,16 @@ See [nvim-aliases.md](nvim-aliases.md) for more details.
 
 ## Features
 
+### Ghostty
+- Tokyo Night Night color scheme
+- MesloLGS Nerd Font (size 12) with inverted block cursor
+- Split navigation with Ctrl+Shift+hjkl (vim-like)
+- Split creation: Ctrl+Shift+\ (horizontal), Ctrl+Shift+- (vertical)
+- Split resizing with Ctrl+Shift+Arrow keys
+- `cursor-click-to-move = false` to prevent mouse clicks from accepting zsh autosuggestions
+- Shell integration with prompt marking and title sync
+- Shift+Enter sends ESC+CR for Neovim compatibility
+
 ### WezTerm
 - Custom key bindings
 - Theme configuration
@@ -146,6 +171,7 @@ See [nvim-aliases.md](nvim-aliases.md) for more details.
 
 ## Requirements
 
+- [Ghostty](https://ghostty.org/) terminal emulator
 - [WezTerm](https://wezfurlong.org/wezterm/) terminal emulator
 - [Kitty](https://sw.kovidgoyal.net/kitty/) terminal emulator
 - [Neovide](https://neovide.dev/) - GUI for Neovim
