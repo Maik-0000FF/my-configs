@@ -19,9 +19,9 @@ font-family = MesloLGS Nerd Font
 font-size = 12
 
 # ── CURSOR ────────────────────────────────────────────────────
-# WezTerm: cursor_thickness = 2
+cursor-style = block
+cursor-style-blink = false
 adjust-cursor-thickness = 2
-
 # WezTerm: force_reverse_video_cursor = true
 # Cursor hebt sich durch invertierte Vorder-/Hintergrundfarben ab
 cursor-invert-fg-bg = true
@@ -52,7 +52,7 @@ tab-inherit-working-directory = true
 
 # ── SHELL INTEGRATION ─────────────────────────────────────────
 shell-integration = detect
-shell-integration-features = cursor,title
+shell-integration-features = title
 
 # ── TERMINAL ──────────────────────────────────────────────────
 scrollback-limit = 10000000

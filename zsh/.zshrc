@@ -93,6 +93,11 @@ else
     ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(forward-char end-of-line)
 fi
 
+# Fix: ZLE uses Ss terminfo entry to set beam cursor at prompt.
+# Force block cursor (\e[2 q = steady block) every time the line editor starts.
+zle-line-init() { print -n '\e[2 q' }
+zle -N zle-line-init
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
