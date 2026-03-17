@@ -33,6 +33,15 @@ Personal configuration files for terminal tools, applications and peripherals.
 - Font rendering with full hinting and antialiasing
 - Optimized for VelocityNvim setup
 
+### tmux Terminal Multiplexer
+- Tokyo Night Night color scheme (via `janoamaral/tokyo-night-tmux`)
+- Vim-like pane navigation (Prefix + hjkl)
+- Split creation: `|` (rechts), `-` (unten) mit CWD-Vererbung
+- Pane-Resize: Prefix + HJKL (wiederholbar)
+- Maus-Support aktiviert
+- True Color Support für korrekte Theme-Darstellung
+- TPM (tmux Plugin Manager) als Plugin-Verwaltung
+
 ### Yazi File Manager
 - Tokyo Night theme
 - VelocityNvim editor integration
@@ -79,20 +88,29 @@ mkdir -p ~/.config/neovide
 cp neovide/config.toml ~/.config/neovide/
 ```
 
+### tmux Setup
+6. TPM installieren und Config kopieren:
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+mkdir -p ~/.config/tmux
+cp tmux/tmux.conf ~/.config/tmux/tmux.conf
+```
+tmux starten, dann `Ctrl+b I` um Plugins zu installieren.
+
 ### Yazi Setup
-6. Copy the yazi configuration:
+7. Copy the yazi configuration:
 ```bash
 cp -r yazi/ ~/.config/yazi/
 ```
 
 ### MX Master 3S Setup
-7. Run the setup script (Arch Linux + KDE Plasma):
+8. Run the setup script (Arch Linux + KDE Plasma):
 ```bash
 cd mx-master-3s
 ./setup.sh
 ```
 
-8. Restart your applications to apply the configurations.
+9. Restart your applications to apply the configurations.
 
 ## VelocityNvim Aliases
 
@@ -163,6 +181,14 @@ See [nvim-aliases.md](nvim-aliases.md) for more details.
 - Consistent font family across normal, bold, italic, and bold-italic styles
 - Integrated with VelocityNvim configuration
 
+### tmux
+- Tokyo Night Night color scheme via tokyo-night-tmux Plugin
+- Prefix + `|` / `-` für Splits (rechts / unten), CWD wird übernommen
+- Prefix + `hjkl` für Pane-Navigation, `HJKL` für Resize
+- Prefix + `Tab` wechselt zum letzten Fenster
+- Prefix + `<` / `>` verschiebt Fenster
+- True Color und Focus-Events für Neovim-Kompatibilität
+
 ### Yazi
 - Tokyo Night theme with comprehensive color scheme
 - Integrated with VelocityNvim for file editing
@@ -178,3 +204,5 @@ See [nvim-aliases.md](nvim-aliases.md) for more details.
 - [Yazi](https://yazi-rs.github.io/) file manager
 - [Neovim](https://neovim.io/) with VelocityNvim configuration
 - [logiops](https://github.com/PixlOne/logiops) - Logitech MX Master 3S Konfiguration (AUR: `logiops-git`)
+- [tmux](https://github.com/tmux/tmux) terminal multiplexer
+- [TPM](https://github.com/tmux-plugins/tpm) - tmux Plugin Manager
