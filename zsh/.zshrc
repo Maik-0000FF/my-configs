@@ -83,15 +83,27 @@ plugins=(
   zsh-syntax-highlighting
 )
 
+# Fix: Kitty mouse clicks send forward-char which triggers autosuggestion acceptance.
+# Remove forward-char from accept widgets in Kitty to prevent this.
+# Must be set BEFORE sourcing oh-my-zsh / zsh-autosuggestions.
+if [[ -n "$KITTY_WINDOW_ID" ]]; then
+    ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(end-of-line vi-end-of-line vi-add-eol)
+fi
+
 source $ZSH/oh-my-zsh.sh
 
-# Fix: Kitty mouse clicks send forward-char which triggers autosuggestion acceptance.
-# In Kitty: only End key accepts. In other terminals: arrow keys + End work normally.
-if [[ -n "$KITTY_WINDOW_ID" ]]; then
-    ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(end-of-line)
-else
-    ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(forward-char end-of-line)
-fi
+# End key accepts autosuggestion in all terminals.
+# ^[[F (normal mode) is unbound by default; ^[OF (application mode) also handled.
+_accept_suggestion_or_eol() {
+    if [[ -n "$POSTDISPLAY" ]]; then
+        zle autosuggest-accept
+    else
+        zle end-of-line
+    fi
+}
+zle -N _accept_suggestion_or_eol
+bindkey '\e[F' _accept_suggestion_or_eol
+bindkey '\eOF' _accept_suggestion_or_eol
 
 # Fix: ZLE uses Ss terminfo entry to set beam cursor at prompt.
 # Force block cursor (\e[2 q = steady block) every time the line editor starts.
